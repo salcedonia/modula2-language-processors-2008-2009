@@ -20,7 +20,10 @@ public class Subprograma extends General{
     
     private Vector<Simbolo> _argumentos; 
     private Vector<modo>    _modos;
-    
+
+    public Subprograma(String cad) {
+        super(cad);
+    }
             
     @Override
     public Simbolo.tipo tipo() {

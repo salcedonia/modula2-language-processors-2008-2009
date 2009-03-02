@@ -1,5 +1,9 @@
 package TablaDeSimbolos;
 
+import TablaDeSimbolos.arbol.Simbolo;
+import TablaDeSimbolos.arbol.SimboloEncontrado;
+import TablaDeSimbolos.arbol.TablaSimbolosExcepcion;
+import TablaDeSimbolos.arbol.TablaSimbolosNodo;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -14,9 +18,10 @@ public class TablaDeSimbolos{
 	
 	// ATRIBUTOS
 	private Hashtable<String, ArrayList<Object>> _palabrasReservadas;
-	private ArrayList<Hashtable<String, ArrayList<Object>>> _listaAmbitos;
-	private Hashtable<Integer, Integer>	_tablaOrganizador;
-	private Integer _ambitoActual;
+//	private ArrayList<Hashtable<String, ArrayList<Object>>> _listaAmbitos;
+//	private Hashtable<Integer, Integer>	_tablaOrganizador;
+    
+	private TablaSimbolosNodo _ambitoActual;
 	private boolean	_insercionesPermitidas;
 
 //	***************************************************************************//
@@ -30,18 +35,11 @@ public class TablaDeSimbolos{
 		// Inicializa el flag de Inserciones Permitidas
 		_insercionesPermitidas = true; //TODO ESTO ES FALSE, PERO CUANDO SE ANADA EL SINTACTICO
 		
-		// Inicializa las tablas
-		_palabrasReservadas	= new Hashtable<String, ArrayList<Object>>();
-		_listaAmbitos = new ArrayList<Hashtable<String,ArrayList<Object>>>();
-		_tablaOrganizador = new Hashtable<Integer, Integer>();
-		
 		// Actualiza el puntero a dicho ámbito
-		_ambitoActual = new Integer(0);
-		
-		// Abre el primer ámbito
-		abreAmbito();
-		
+		_ambitoActual = new TablaSimbolosNodo();
+	
 		// Añade las palabras reservadas a las tablas
+                _palabrasReservadas = new Hashtable<String, ArrayList<Object>>();
 		generaListaReservadas();
 	}
 	
@@ -59,49 +57,6 @@ public class TablaDeSimbolos{
 			atributos.add(new String(word.toString()));
 			_palabrasReservadas.put(word.toString(), atributos);
 		}
-	}
-	
-//	***************************************************************************//
-	/**
-	 * Busca la palabra dada en el ámbito actual. Devuelve el rango de ámbitos
-	 * donde se encuentra el identificador o -1 si la palabra no es encontrada.
-	 * 
-	 *  @param identificador Identificador a buscar.
-	 *  @return	<li>El número en la <i>tabla de ámbitos</i> del ámbito que 
-	 *  contiene la variable.
-	 *  		<li>-1 Si el identificador no está definido.
-	 *  
-	 *  @see #esPalabraReservada(String)
-	 *  @see #insertaIdentificador(String)
-	 */
-	private int estaInsertada(String identificador){
-		
-		Hashtable<String, ArrayList<Object>> ambito;
-		
-		int iAmbito = _ambitoActual;
-		ambito = _listaAmbitos.get(_ambitoActual);
-		
-		// Busca por el ámbito actual y los padres hasta dar con la solución, de existir
-		while (ambito != null){
-			
-			// Retorna cierto y actualiza el valor
-			if (ambito.containsKey(identificador)){ 
-				iAmbito = _listaAmbitos.indexOf(ambito);
-				return iAmbito;
-			}
-			else { // Vuelve al ámbito padre
-				
-				if (iAmbito == 0){ // No hay más ámbitos padre
-					ambito = null;
-					iAmbito = -1;
-				}
-				else { // Actualiza al ámbito padre
-					iAmbito = _tablaOrganizador.get(iAmbito);
-					ambito = _listaAmbitos.get(_tablaOrganizador.get(_ambitoActual));
-				}
-			}
-		}
-		return -1;
 	}
 	
 //	***************************************************************************//
@@ -142,19 +97,18 @@ public class TablaDeSimbolos{
 	 *  		estaba ya previamente definido o era una palabra reservada.
 	 *  		<li>Un puntero a <i>null</i> si las inserciones no están permitidas 
 	 */
-	public ArrayList<Object> insertaIdentificador(String identificador){
+	public Simbolo insertaIdentificador(String identificador){
 		
 		Integer iAmbitoTemporal;
 		iAmbitoTemporal = new Integer(0);
 		
-		// Si es una palabra reservada retorna el puntero a la tabla interna de la misma.
-		if (esPalabraReservada(identificador)){
-			return (_palabrasReservadas.get(identificador.toUpperCase()));
-		}
 		// Si ya existe se devuelve un puntero a la entrada previamente generada.
-		if (estaInsertada(identificador)>0){
-			return _listaAmbitos.get(iAmbitoTemporal).get(identificador); 
-		}
+		try{
+                    _ambitoActual.estaInsertada(identificador);
+                }catch(SimboloEncontrado s){
+                    return s.simbolo;
+                }
+		
 		// Si no se permiten inserciones retorna null
 		if (!_insercionesPermitidas) return null;
 		
@@ -162,12 +116,11 @@ public class TablaDeSimbolos{
 		 * Si no es reservada ni existe previamente se inserta y se devuelve 
 		 * un puntero a dicha entrada.
 		 */
-		ArrayList<Object> atributos = new ArrayList<Object>();
-		atributos.add(new String(identificador));
-		_listaAmbitos.get(_ambitoActual).put(identificador, atributos);
-		
-		// Retorna el puntero a la entrada insertada
-		return _listaAmbitos.get(_ambitoActual).get(identificador);
+		//ArrayList<Object> atributos = new ArrayList<Object>();
+		//atributos.add(new String(identificador));
+                
+                // Retorna el puntero a la entrada insertada
+                return _ambitoActual.addSimboloGeneral(identificador);
 	}
 	
 //	***************************************************************************//
@@ -177,18 +130,7 @@ public class TablaDeSimbolos{
 	 * @see #CierraAmbito()
 	 */
 	public void abreAmbito(){
-		
-		Hashtable<String, ArrayList<Object>> tempTable;
-		
-		// Añade la entrada al organizador
-		_tablaOrganizador.put(new Integer(_listaAmbitos.size()), new Integer(_ambitoActual));
-		
-		// Inserta la tabla en la lista dinamica
-		tempTable = new Hashtable<String, ArrayList<Object>>();
-		_listaAmbitos.add(tempTable);
-		
-		// Actualiza el puntero de ambito actual
-		_ambitoActual = _listaAmbitos.size() - 1;
+		_ambitoActual = _ambitoActual.anidaAmbito();
 	}
 	
 //	***************************************************************************//
@@ -211,13 +153,13 @@ public class TablaDeSimbolos{
 	 * @see #abreAmbito()
 	 */
 	public void CierraAmbito(){
-		
-		// Actualiza el puntero a la tabla actual
-		_ambitoActual = _tablaOrganizador.get(_ambitoActual);
-		
-		/* TODO HabrÃ­a que ver si la tabla de Ã¡mbito previa se puede eliminar
-		 * o no para ahorrar costes en espacio.
-		 */
+	    
+            try{
+            _ambitoActual = _ambitoActual.ambitoPadre();
+            } catch (TablaSimbolosExcepcion ex){
+                // DO NOTHING:
+                // el ambito actual es la raiz del arbol
+            }
 	}
 	
 //	***************************************************************************//

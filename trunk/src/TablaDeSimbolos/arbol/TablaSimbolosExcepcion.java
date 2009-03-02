@@ -7,8 +7,13 @@ package TablaDeSimbolos.arbol;
 
 /**
  *
+ * 
+ * 
  * @author Luis Ayuso
  */
-public class TablaSimbolosExcepcion {
+public class TablaSimbolosExcepcion extends Throwable{
 
+    
+    
+    //TODO: añadir algo aqui
 }
