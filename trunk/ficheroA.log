@@ -1,0 +1,4 @@
+0    [main] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  registro
+2    [main] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+10   [main] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo registro y lexema cd
+16   [main] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo EscribeRecursivamente y lexema a
