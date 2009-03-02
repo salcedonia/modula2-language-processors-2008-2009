@@ -25,5 +25,7 @@ public class Array extends General{
     @Override
     public Simbolo.tipo tipo() {
         return Simbolo.tipo.ARRAY;
-    }    
+    }  
+    
+    
 }

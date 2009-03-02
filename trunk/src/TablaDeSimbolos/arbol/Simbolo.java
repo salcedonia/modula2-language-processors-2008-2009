@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public interface Simbolo {
   
     public enum tipo{GENERALES, SUBPROGRAMA, ARRAY};
+
+    public String lexema();
     
     public tipo tipo();
 

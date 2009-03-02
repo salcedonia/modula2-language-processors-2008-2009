@@ -333,68 +333,91 @@ private String _fuenteDelError = null; // Para saber la fuente de la que procede
 private Token creaToken(TipoToken tipo, Object valor) {
 
 	ArrayList<Object> atributos = new ArrayList<Object>();
-
-	if (tipo == TipoToken.PUNTUACION){
-		atributos.add((TipoPuntuacion)valor);
-	}
-	else if (tipo == TipoToken.OPERADOR_SUMADOR){
-		atributos.add((TipoOperadorSumador)valor);
-	} 
-	else if (tipo == TipoToken.OPERADOR_COMPARADOR){
-		atributos.add((TipoOperadorComparador)valor);
-	} 
-	else if (tipo == TipoToken.OPERADOR_MULTIPLICADOR){
-		atributos.add((TipoOperadorMultiplicador)valor);
-	}
-	else if (tipo == TipoToken.OPERADOR_UNITARIO){
-		atributos.add((TipoOperadorUnitario)valor);
-	}
-	else if (tipo == TipoToken.IDENTIFICADOR){
-		
-		// Si es Palabra Reservada
-		if (_tablaSimbolos.esPalabraReservada((String)valor)){
-			tipo = TipoToken.PALABRA_RESERVADA;
-		}
-
-		// Comprobamos si es un procedimiento o función predifinida
-		boolean esFunPred = false;
-		boolean esProcPred = false;
-		try{
-			atributos.add (FuncionesPredefinidas.valueOf((String) valor));
-			esFunPred = true;
-			tipo = TipoToken.FUNCION_PREDEFINIDA;
-		}
-		catch (Exception e) {
- 			esFunPred = false;
-		}
-		
-		try{
-			atributos.add(ProcedimientosPredefinidos.valueOf((String) valor));
-			esProcPred = true;
-			tipo = TipoToken.PROCEDIMIENTO_PREDEFINIDO;
-		}
-		catch (Exception e2){
-			esProcPred = false;
-		}
-		
-		// Si es un identificador lo insertamos en la tabla de símbolos
-		if (!esProcPred && !esFunPred)
-			atributos = _tablaSimbolos.insertaIdentificador((String)valor);
-	} 
-	else if (tipo == TipoToken.NUMERO_ENTERO){
-		atributos.add(new Integer((Integer)valor)); 		
-	} 
-	else if (tipo == TipoToken.NUMERO_REAL){
-		atributos.add(new Double((Double)valor));
-	} 
-	else if (tipo == TipoToken.CARACTER){
-		atributos.add(new Character((Character)valor));
-	} 
-	else if (tipo == TipoToken.CADENA){
-		atributos.add(new String((String)valor));	
-	} 
-	
-    	return new Token(tipo.ordinal(), yyline, yycolumn, atributos);
+        
+        
+        switch (tipo){
+            case CADENA:
+            case CARACTER:
+            case EOF:
+            case FUNCION_PREDEFINIDA:
+            case IDENTIFICADOR:
+            case NUMERO_ENTERO:
+            case NUMERO_REAL:
+            case OPERADOR_ASIGNACION:
+            case OPERADOR_COMPARADOR:
+            case OPERADOR_MULTIPLICADOR:
+            case OPERADOR_SUMADOR:
+            case OPERADOR_UNITARIO:
+            case PALABRA_RESERVADA:
+            case PROCEDIMIENTO_PREDEFINIDO:
+            case PUNTUACION:
+                return new Token(tipo, yyline, yycolumn, (TipoPuntuacion)valor);
+        (
+        }
+        
+        
+//
+//	if (tipo == TipoToken.PUNTUACION){
+//		atributos.add((TipoPuntuacion)valor);
+//	}
+//	else if (tipo == TipoToken.OPERADOR_SUMADOR){
+//		atributos.add((TipoOperadorSumador)valor);
+//	} 
+//	else if (tipo == TipoToken.OPERADOR_COMPARADOR){
+//		atributos.add((TipoOperadorComparador)valor);
+//	} 
+//	else if (tipo == TipoToken.OPERADOR_MULTIPLICADOR){
+//		atributos.add((TipoOperadorMultiplicador)valor);
+//	}
+//	else if (tipo == TipoToken.OPERADOR_UNITARIO){
+//		atributos.add((TipoOperadorUnitario)valor);
+//	}
+//	else if (tipo == TipoToken.IDENTIFICADOR){
+//		
+//		// Si es Palabra Reservada
+//		if (_tablaSimbolos.esPalabraReservada((String)valor)){
+//			tipo = TipoToken.PALABRA_RESERVADA;
+//		}
+//
+//		// Comprobamos si es un procedimiento o función predifinida
+//		boolean esFunPred = false;
+//		boolean esProcPred = false;
+//		try{
+//			atributos.add (FuncionesPredefinidas.valueOf((String) valor));
+//			esFunPred = true;
+//			tipo = TipoToken.FUNCION_PREDEFINIDA;
+//		}
+//		catch (Exception e) {
+// 			esFunPred = false;
+//		}
+//		
+//		try{
+//			atributos.add(ProcedimientosPredefinidos.valueOf((String) valor));
+//			esProcPred = true;
+//			tipo = TipoToken.PROCEDIMIENTO_PREDEFINIDO;
+//		}
+//		catch (Exception e2){
+//			esProcPred = false;
+//		}
+//		
+//		// Si es un identificador lo insertamos en la tabla de símbolos
+//		if (!esProcPred && !esFunPred)
+//			atributos = _tablaSimbolos.insertaIdentificador((String)valor);
+//	} 
+//	else if (tipo == TipoToken.NUMERO_ENTERO){
+//		atributos.add(new Integer((Integer)valor)); 		
+//	} 
+//	else if (tipo == TipoToken.NUMERO_REAL){
+//		atributos.add(new Double((Double)valor));
+//	} 
+//	else if (tipo == TipoToken.CARACTER){
+//		atributos.add(new Character((Character)valor));
+//	} 
+//	else if (tipo == TipoToken.CADENA){
+//		atributos.add(new String((String)valor));	
+//	} 
+//	
+//    	return new Token(tipo.ordinal(), yyline, yycolumn, atributos);
 }
 
 /**

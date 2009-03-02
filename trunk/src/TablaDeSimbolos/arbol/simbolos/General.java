@@ -37,9 +37,8 @@ public class General implements Simbolo{
         return Simbolo.tipo.GENERALES;
     }
 
-    public ArrayList<Object> atributos() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+    public String lexema (){
+        return _lexema;
+    }    
     
 }
