@@ -8,7 +8,6 @@ package Scanner;
  * @author Grupo1.
  */
 public enum TipoPuntuacion {
-	
 	COMA,
 	PUNTO_Y_COMA,
 	PUNTO,

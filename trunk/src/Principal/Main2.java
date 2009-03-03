@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 
 import GestorDeErrores.GestorErrores;
 import Scanner.Scanner;
+import Scanner.TipoToken;
 import TablaDeSimbolos.TablaDeSimbolos;
 import Scanner.Token;
 
@@ -31,7 +32,7 @@ public class Main2 {
 		    		  sym = lexer.get_token();
 				      System.out.println("Token -> " + sym.toString());
 		              
-		          }while(sym._tipo != 0);
+		          }while(sym._tipo != TipoToken.EOF);
 		    	  
 		          // Muestra la lista de errores
 			      gestor.muestraListaErrores();	

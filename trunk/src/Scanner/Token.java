@@ -13,7 +13,7 @@ import TablaDeSimbolos.arbol.Simbolo;
 public class Token {
 	
 	// ATRIBUTOS
-	public int _tipo;
+	public TipoToken _tipo;
 	public int _linea;
 	public int _columna;
         
@@ -23,6 +23,23 @@ public class Token {
     private Object _atr;
     
     private String _lexema;
+
+    /**
+     * 
+     * 
+     *@param linea
+     *@param columna
+     **/ 
+    public Token(int linea , int columna) {
+       _linea = linea;
+       _columna = columna;
+    }
+    
+    public Token(TipoToken tipo, int linea , int columna) {
+       _linea = linea;
+       _columna = columna;
+    }
+    
     
 //	***************************************************************************//
     /**
@@ -33,7 +50,7 @@ public class Token {
      * @param columna La columna asociada al token.
      * @param atributos Los atributos del token.
      */
-    public Token(int tipo, int linea, int columna, Simbolo sim) {
+    public Token(TipoToken tipo, int linea, int columna, Simbolo sim) {
 
         _tipo = tipo;
         _linea = linea;
@@ -51,12 +68,13 @@ public class Token {
      * @param columna La columna asociada al token.
      * @param atributos Los atributos del token.
      */
-    public Token(int tipo, int linea, int columna, String lexema) {
+    public Token(TipoToken tipo, int linea, int columna, Object valor) {
 
         _tipo = tipo;
         _linea = linea;
         _columna = columna;
-        _lexema = lexema;
+       // _lexema = lexema;
+        _atr = valor;
     }
 //	***************************************************************************//
     /**
@@ -65,15 +83,9 @@ public class Token {
      * @param _tipo Tipo del token.
      * @param atributos Atributos del token.
      */
-    public Token(int tipo) {
-
+    public Token(TipoToken tipo) {
         _tipo = tipo;
     }
-
-    Token(TipoToken tipo, int yyline, int yycolumn, Object atr) {
-       
-    }
-
 //	***************************************************************************//
     /**
      * Devuelve el campo _atributos del token transformado a String. Por defecto
@@ -99,41 +111,7 @@ public class Token {
      */
     public TipoToken getTipoToken() {
 
-        switch (_tipo) {
-
-            case 0:
-                return TipoToken.EOF;
-            case 1:
-                return TipoToken.PALABRA_RESERVADA;
-            case 2:
-                return TipoToken.IDENTIFICADOR;
-            case 3:
-                return TipoToken.NUMERO_ENTERO;
-            case 4:
-                return TipoToken.NUMERO_REAL;
-            case 5:
-                return TipoToken.CARACTER;
-            case 6:
-                return TipoToken.CADENA;
-            case 7:
-                return TipoToken.OPERADOR_SUMADOR;
-            case 8:
-                return TipoToken.OPERADOR_MULTIPLICADOR;
-            case 9:
-                return TipoToken.OPERADOR_UNITARIO;
-            case 10:
-                return TipoToken.PUNTUACION;
-            case 11:
-                return TipoToken.OPERADOR_COMPARADOR;
-            case 12:
-                return TipoToken.OPERADOR_ASIGNACION;
-            case 13:
-                return TipoToken.FUNCION_PREDEFINIDA;
-            case 14:
-                return TipoToken.PROCEDIMIENTO_PREDEFINIDO;
-        }
-
-        return null;
+        return _tipo;
     }
 //	***************************************************************************//
     /**
@@ -144,7 +122,7 @@ public class Token {
     public String toString() {
 
         String string = new String();
-        string += "( " + TipoToken.values()[_tipo];
+        string += "( " + _tipo.name();
         if (getAtributo().matches("")) {
             string += ", NULL )";
         } else {
