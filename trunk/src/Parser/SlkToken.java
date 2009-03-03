@@ -522,4 +522,13 @@ public class SlkToken {
 			return (new Character(ch)); // devolvemos el token caracter
 		}
 	}
+
+    @Override
+    public String toString() {
+        
+        return _token._tipo.name();
+        
+    }
+        
+        
 }

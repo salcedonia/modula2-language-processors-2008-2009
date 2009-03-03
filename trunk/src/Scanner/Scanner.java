@@ -342,37 +342,32 @@ private Token creaToken(TipoToken tipo, Object valor) {
             case FUNCION_PREDEFINIDA:
                 return new Token(TipoToken.FUNCION_PREDEFINIDA, yyline, yycolumn, (Object)(TipoOperadorComparador)valor);
             case IDENTIFICADOR:
-                // en el casod el indentificador hay que diferenciar que es lo que es.
-                Token tmp = null;   
-                
+              // en el casod el indentificador hay que diferenciar que es lo que es.
+             
               // Si es Palabra Reservada
-              if (_tablaSimbolos.esPalabraReservada((String)valor)){
-                      tmp = new Token (TipoToken.PALABRA_RESERVADA, yyline, yycolumn);
-              }
+              if (_tablaSimbolos.esPalabraReservada((String)valor))
+                      return new Token (TipoToken.PALABRA_RESERVADA, yyline, yycolumn);
+             
 
               // Comprobamos si es un procedimiento o función predifinida
-              boolean esFunPred = false;
-              boolean esProcPred = false;
+           
               try{
-                      tmp = new Token(TipoToken.FUNCION_PREDEFINIDA, yyline, yycolumn, FuncionesPredefinidas.valueOf((String) valor));
-                      esFunPred = true;    
+                      return new Token(TipoToken.FUNCION_PREDEFINIDA, yyline, yycolumn, FuncionesPredefinidas.valueOf((String) valor));           
               }
-              catch (Exception e) {
-                      esFunPred = false;
+              catch (Exception e) {      
               }
               
               try{
-                  tmp = new Token(TipoToken.PROCEDIMIENTO_PREDEFINIDO, yyline, yycolumn, ProcedimientosPredefinidos.valueOf((String) valor));
-                  esProcPred = true;
+                  return new Token(TipoToken.PROCEDIMIENTO_PREDEFINIDO, yyline, yycolumn, ProcedimientosPredefinidos.valueOf((String) valor));
               }
               catch (Exception e2){
-                      esProcPred = false;
+                 
               }
               
               // Si es un identificador lo insertamos en la tabla de símbolos
-              if (!esProcPred && !esFunPred)
-                      tmp = new Token(TipoToken.IDENTIFICADOR, yyline, yycolumn, _tablaSimbolos.insertaIdentificador((String)valor));
-              return tmp;
+             
+              return new Token(TipoToken.IDENTIFICADOR, yyline, yycolumn, _tablaSimbolos.insertaIdentificador((String)valor));
+              
             case NUMERO_ENTERO:
                 return new Token(TipoToken.NUMERO_ENTERO, yyline, yycolumn, (Object)(Integer)valor);
             case NUMERO_REAL:

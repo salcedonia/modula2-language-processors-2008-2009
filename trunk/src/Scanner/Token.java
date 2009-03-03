@@ -38,6 +38,7 @@ public class Token {
     public Token(TipoToken tipo, int linea , int columna) {
        _linea = linea;
        _columna = columna;
+       _tipo = tipo;
     }
     
     
