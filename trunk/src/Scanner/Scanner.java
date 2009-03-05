@@ -345,7 +345,7 @@ private Token creaToken(TipoToken tipo, Object valor) {
             case CADENA:
                 return new Token(TipoToken.CADENA, yyline, yycolumn, new Cadena((String)valor));
             case CARACTER:
-                return new Token(TipoToken.CADENA, yyline, yycolumn, new Caracter((String) valor));
+                return new Token(TipoToken.CADENA, yyline, yycolumn, new Caracter((Character) valor));
             case EOF:
                  return new Token(TipoToken.EOF);
             case FUNCION_PREDEFINIDA:
@@ -380,19 +380,19 @@ private Token creaToken(TipoToken tipo, Object valor) {
               return new Token(TipoToken.IDENTIFICADOR, yyline, yycolumn, _tablaSimbolos.insertaIdentificador((String)valor));
               
             case NUMERO_ENTERO:
-                return new Token(TipoToken.NUMERO_ENTERO, yyline, yycolumn, new Entero((String) valor));
+                return new Token(TipoToken.NUMERO_ENTERO, yyline, yycolumn, new Entero((Integer) valor));
             case NUMERO_REAL:
                 return new Token(TipoToken.NUMERO_REAL, yyline, yycolumn, new Real((Double)valor));
             case OPERADOR_ASIGNACION:
-                return new Token(TipoToken.OPERADOR_ASIGNACION, yyline, yycolumn,new Operador((String)((TipoOperadorComparador)valor).name()));
+                return new Token(TipoToken.OPERADOR_ASIGNACION, yyline, yycolumn,new Operador((String)valor));
             case OPERADOR_COMPARADOR:
-                return new Token(TipoToken.OPERADOR_COMPARADOR, yyline, yycolumn,new Operador((String)((TipoOperadorComparador)valor).name()));
+                return new Token(TipoToken.OPERADOR_COMPARADOR, yyline, yycolumn,new Operador((String) ((TipoOperadorComparador) valor).name()));
             case OPERADOR_MULTIPLICADOR:
-                return new Token(TipoToken.OPERADOR_MULTIPLICADOR, yyline, yycolumn,new Operador((String)((TipoOperadorMultiplicador)valor).name()));
+                return new Token(TipoToken.OPERADOR_MULTIPLICADOR, yyline, yycolumn,new Operador((String)valor));
             case OPERADOR_SUMADOR:
-                return new Token(TipoToken.OPERADOR_SUMADOR, yyline, yycolumn, new Operador((String)((TipoOperadorSumador)valor).name()));
+                return new Token(TipoToken.OPERADOR_SUMADOR, yyline, yycolumn, new Operador((String)((TipoOperadorSumador) valor).name()));
             case OPERADOR_UNITARIO:
-                return new Token(TipoToken.OPERADOR_UNITARIO, yyline, yycolumn,new Operador((String)((TipoOperadorUnitario)valor).name()));
+                return new Token(TipoToken.OPERADOR_UNITARIO, yyline, yycolumn,new Operador((String)valor));
             case PALABRA_RESERVADA:
                 return new Token(TipoToken.PALABRA_RESERVADA, yyline, yycolumn, new Literal((String) valor));
             case PROCEDIMIENTO_PREDEFINIDO:
