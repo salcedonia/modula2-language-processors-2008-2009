@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *    
  * @author Luis Ayuso
  */
-public class General implements Simbolo{
+public class General extends Simbolo{
 
     
     private String _lexema;
@@ -39,6 +39,13 @@ public class General implements Simbolo{
 
     public String lexema (){
         return _lexema;
-    }    
+    }
+
+    @Override
+    public String toString() {
+        return _lexema;
+    }
+    
+    
     
 }

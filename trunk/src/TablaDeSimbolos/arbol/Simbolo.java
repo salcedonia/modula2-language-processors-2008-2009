@@ -1,5 +1,6 @@
 package TablaDeSimbolos.arbol;
 
+import Scanner.Atributos;
 import java.util.ArrayList;
 
 /**
@@ -9,12 +10,12 @@ import java.util.ArrayList;
  * 
  * @author Luis Ayuso
  */
-public interface Simbolo {
+public abstract class Simbolo implements Atributos{
   
     public enum tipo{GENERALES, SUBPROGRAMA, ARRAY};
 
-    public String lexema();
+    public abstract String lexema();
     
-    public tipo tipo();
+    public abstract tipo tipo();
 
 }

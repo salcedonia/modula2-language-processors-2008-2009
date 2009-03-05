@@ -12,7 +12,7 @@ import java.util.Vector;
  *
  * @author Luis Ayuso
  */
-public class Array extends General{
+public class Array extends  General{
 
     
     private int _dimensiones;

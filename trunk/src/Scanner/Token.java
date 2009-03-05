@@ -20,9 +20,7 @@ public class Token {
     /**
      * el simbolo asociado a este token
      */
-    private Object _atr;
-    
-    private String _lexema;
+    private Atributos _atr;
 
     /**
      * 
@@ -35,13 +33,6 @@ public class Token {
        _columna = columna;
     }
     
-    public Token(TipoToken tipo, int linea , int columna) {
-       _linea = linea;
-       _columna = columna;
-       _tipo = tipo;
-    }
-    
-    
 //	***************************************************************************//
     /**
      * Constructor de la clase Token.
@@ -51,32 +42,30 @@ public class Token {
      * @param columna La columna asociada al token.
      * @param atributos Los atributos del token.
      */
-    public Token(TipoToken tipo, int linea, int columna, Simbolo sim) {
+    public Token(TipoToken tipo, int linea, int columna, Atributos sim) {
 
         _tipo = tipo;
         _linea = linea;
         _columna = columna;
-        _atr = (Object)sim;
+        _atr = sim;
 
-        _lexema = sim.lexema();
     }
     //	***************************************************************************//
-    /**
-     * Constructor de la clase Token.
-     * 
-     * @param tipo El tipo del token.
-     * @param linea La línea asociada al token.
-     * @param columna La columna asociada al token.
-     * @param atributos Los atributos del token.
-     */
-    public Token(TipoToken tipo, int linea, int columna, Object valor) {
-
-        _tipo = tipo;
-        _linea = linea;
-        _columna = columna;
-       // _lexema = lexema;
-        _atr = valor;
-    }
+//    /**
+//     * Constructor de la clase Token.
+//     * 
+//     * @param tipo El tipo del token.
+//     * @param linea La línea asociada al token.
+//     * @param columna La columna asociada al token.
+//     * @param atributos Los atributos del token.
+//     */
+//    public Token(TipoToken tipo, int linea, int columna, String lexema) {
+//
+//        _tipo = tipo;
+//        _linea = linea;
+//        _columna = columna;
+//
+//    }
 //	***************************************************************************//
     /**
      * Constructor de la clase Token.
@@ -97,7 +86,7 @@ public class Token {
      */
     public String getAtributo() {
 
-        String atribAux = _lexema;
+        String atribAux = _atr.toString();
         atribAux = atribAux.toString().replace("[", " ");
         atribAux = atribAux.toString().replace("]", " ");
         atribAux = atribAux.trim();

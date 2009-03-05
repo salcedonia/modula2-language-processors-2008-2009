@@ -87,7 +87,9 @@ public class TablaSimbolosNodo {
      * @return el ambito anidado.
      */
     public TablaSimbolosNodo anidaAmbito(){
-        return new TablaSimbolosNodo(this);
+        TablaSimbolosNodo t = new TablaSimbolosNodo(this);
+        _hijos.add(t);
+        return t;
     }
     
        /**
