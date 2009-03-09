@@ -1,0 +1,27 @@
+0    [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo ej1 y lexema InOut
+22   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo ej1 y lexema Storage
+71   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  LISTA
+71   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+71   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema info
+72   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema siguiente
+72   [AWT-EventQueue-0] ERROR grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Ya esta definida la variable LISTA o la variable se llama = que el modulo
+74   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  MIPROC
+74   [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+16217 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.interfazGraficaTabla.Simular  - Ambito nulo
+63872 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo ej1 y lexema Storage
+63876 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  LISTA
+63876 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+63877 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema info
+63878 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema siguiente
+63879 [AWT-EventQueue-0] ERROR grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Ya esta definida la variable LISTA o la variable se llama = que el modulo
+63889 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  MIPROC
+63889 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+79125 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo ej1 y lexema InOut
+79127 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo ej1 y lexema Storage
+79133 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  LISTA
+79134 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
+79134 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema info
+79135 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Insertando identificador en la tabla del modulo LISTA y lexema siguiente
+79135 [AWT-EventQueue-0] ERROR grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - Ya esta definida la variable LISTA o la variable se llama = que el modulo
+79136 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.Argumentos  - Creando la tabla con puntero  MIPROC
+79145 [AWT-EventQueue-0] DEBUG grupo3.plg.lexico.tablaSimbolos.TablaSimbolos  - insertando procedimiento
