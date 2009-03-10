@@ -355,10 +355,10 @@ REAL
 ConstantePredefinida:
 TRUE 
 FALSE 
-NIL 
+NIL
 
 ListaDeIdentificadores:
-Identificador RestoListaIdentificadores 
+Identificador RestoListaIdentificadores
 
 RestoListaIdentificadores:
 _epsilon_	
@@ -374,40 +374,40 @@ IdentDeProcPredef
 
 IdentDeProcPredef:
 ALLOCATE
-DEALLOCATE 
-ReadInt 
-WriteInt 
-ReadCard 
-WriteCard 
-ReadChar 
-WriteChar 
-ReadString 
-WriteString 
-ReadReal 
-WriteReal 
-WriteLn 
+DEALLOCATE
+ReadInt
+WriteInt
+ReadCard
+WriteCard
+ReadChar
+WriteChar
+ReadString
+WriteString
+ReadReal
+WriteReal
+WriteLn
 
 //------------------------------------------------------------------------------//
 //		LLAMADA DE PROCEDIMIENTOS Y FUNCIONES PREDEFINIDAS		//
 //------------------------------------------------------------------------------//
 LlamadaProcedimientoPredefinido:
-DEC ( Expresion [ , Expresion ] ) 
-INC ( Expresion [ , Expresion ] ) 
-INCL ( Expresion , Expresion )
+DEC ( Expresion [ , Expresion ] )
+INC ( Expresion [ , Expresion ] )
+INCL ( Expresion , Expresion ) 
 EXCL ( Expresion , Expresion )
 NEW ( Expresion ) 
-DISPOSE ( Expresion ) 
-ReadInt ( Expresion ) 
-WriteInt ( Expresion , Expresion ) 
-ReadCard ( Expresion ) 
-WriteCard ( Expresion , Expresion ) 
-ReadChar ( Expresion ) 
-WriteChar (  Expresion ) 
+DISPOSE ( Expresion )
+ReadInt ( Expresion )
+WriteInt ( Expresion , Expresion )
+ReadCard ( Expresion )
+WriteCard ( Expresion , Expresion )
+ReadChar ( Expresion )
+WriteChar (  Expresion )
 ReadString ( Expresion ) 
-WriteString ( Expresion ) 
-ReadReal ( Expresion ) 
-WriteReal ( Expresion , Expresion [ , Expresion ] ) 
-WriteLn 
+WriteString ( Expresion )
+ReadReal ( Expresion )
+WriteReal ( Expresion , Expresion [ , Expresion ] )
+WriteLn
 HALT
 
 LlamadaFuncionPredefinida:
@@ -421,5 +421,5 @@ MIN ( IdentificadorDeTipo )
 ODD ( Expresion )
 ORD ( Expresion )
 SIZE ( IdentificadorDeTipo )
-TRUNC ( Expresion )
-VAL ( IdentificadorDeTipo , Expresion ) _action_val
+TRUNC ( Expresion ) 
+VAL ( IdentificadorDeTipo , Expresion )
