@@ -28,7 +28,19 @@ public void execute ( int  number )
     case 20:  termino();  break;
     case 21:  factor();  break;
     case 22:  numero();  break;
-    case 23:  numEntero();  break;
-    case 24:  numReal();  break;
+    case 23:  multiplicadorPor();  break;
+    case 24:  multiplicadorDivision();  break;
+    case 25:  multiplicadorDIV();  break;
+    case 26:  multiplicadorMOD();  break;
+    case 27:  multiplicadorAMPERSAND();  break;
+    case 28:  multiplicadorAND();  break;
+    case 29:  operdadorNOT();  break;
+    case 30:  TipFormalARRAY();  break;
+    case 31:  numEntero();  break;
+    case 32:  numReal();  break;
+    case 33:  listaElementos();  break;
+    case 34:  Elementos();  break;
+    case 35:  tipoPredefinido();  break;
+    case 36:  Identificador();  break;
   }
 }

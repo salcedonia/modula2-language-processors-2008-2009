@@ -308,37 +308,37 @@ OperadorSumador:
 OR 
 
 OperadorMultiplicador:
-*  _action_multiplicadorPor
-/  _action_multiplicadorDivision
-DIV  _action_multiplicadorDIV
-MOD _action_multiplicadorMOD
-& 	_action_multiplicadorAMPERSAND
-AND _action_multiplicadorAND
+* 
+/ 
+DIV 
+MOD 
+& 
+AND 
 
 OperadorUnario:
-NOT _action_operdadorNOT
- 
+NOT 
+~ 
 
 //----------------------------------------------//
 //		ELEMENTOS BASICOS	   	//
 //----------------------------------------------//
 TipoFormal:
-[ ARRAY OF ] IdentificadorDeTipo _action_TipFormalARRAY
+[ ARRAY OF ] IdentificadorDeTipo 
  
 Numero:
 NumeroEntero _action_numEntero
 NumeroReal _action_numReal
 
 ListaDeElementos:
-[ Elementos { , Elementos } ]    _action_listaElementos
+[ Elementos { , Elementos } ] 
 
 Elementos:
-ExpresionConstante [ .. ExpresionConstante ] _action_Elementos
+ExpresionConstante [ .. ExpresionConstante ] 
 
 // TIPOS
 IdentificadorDeTipo:
-TipoPredefinido  _action_tipoPredefinido
-Identificador	_action_Identificador
+TipoPredefinido 
+Identificador 
 
 TipoPredefinido:
 BITSET 
