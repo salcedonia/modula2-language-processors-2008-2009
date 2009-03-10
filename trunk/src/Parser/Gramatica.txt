@@ -141,7 +141,7 @@ Sentencia { ; Sentencia }
 
 Sentencia:
 _epsilon_ 
-SentenciaAsignacion
+SentenciaAsignacion _action_SentenciaAsignacion
 SentenciaIF
 SentenciaCASE
 SentenciaWHILE
@@ -154,14 +154,14 @@ SentenciaRETURN
 EXIT
 
 SentenciaAsignacion:
-Identificador RestoSentenciaAsignacion
+Identificador RestoSentenciaAsignacion _action_RestoSentenciaAsignacion
 
 RestoSentenciaAsignacion:
-ParteIzquierda RestoSentenciaRestoAsignacion
+ParteIzquierda RestoSentenciaRestoAsignacion _action_RestoSentenciaRestoAsignacion
 
 RestoSentenciaRestoAsignacion:
 _epsilon_
-:= Expresion
+:= Expresion _action_Expresion
 ParametrosDeLlamada
 
 ParteIzquierda:
@@ -251,18 +251,18 @@ _epsilon_
 , Expresion RestoListaDeExpresiones
 
 Expresion:
-ExpresionSimple RestoExpresion
+ExpresionSimple RestoExpresion _action_RestoExpresion
 
 RestoExpresion:
 _epsilon_
-OperadorComparador ExpresionSimple
+OperadorComparador ExpresionSimple _action_ExpresionSimple
 
 ExpresionSimple:
-Signo Termino RestoExpresionSimple
+Signo Termino RestoExpresionSimple _action_RestoExpresionSimple
 
 RestoExpresionSimple:
 _epsilon_
-OperadorSumador Termino RestoExpresionSimple
+OperadorSumador Termino _action_termino RestoExpresionSimple
 
 Signo:
 _epsilon_
@@ -270,7 +270,7 @@ _epsilon_
 -
 
 Termino:
-Factor RestoTermino
+Factor _action_factor RestoTermino
 
 RestoTermino:
 _epsilon_	
@@ -279,7 +279,7 @@ OperadorMultiplicador Factor RestoTermino
 Factor:
 Identificador RestoFactor
 ConstantePredefinida 
-Numero 
+Numero _action_numero
 TipoPredefinido \{ ListaDeElementos \}
 Cadena 
 Caracter 

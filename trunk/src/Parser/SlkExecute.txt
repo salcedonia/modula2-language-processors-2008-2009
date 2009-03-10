@@ -9,16 +9,26 @@ public void execute ( int  number )
     case 1:  unidadDeCompilacion1();  break;
     case 2:  unidadDeCompilacion2();  break;
     case 3:  unidadDeCompilacion3();  break;
-    case 4:  SentenciaWHILE();  break;
-    case 5:  SentenciaREPEAT();  break;
-    case 6:  SentenciaLOOP();  break;
-    case 7:  SentenciaFOR();  break;
-    case 8:  SentenciaWITH();  break;
-    case 9:  SentenciaRETURN();  break;
-    case 10:  ListaDeValores();  break;
-    case 11:  vacio();  break;
-    case 12:  RestoValores();  break;
-    case 13:  numEntero();  break;
-    case 14:  numReal();  break;
+    case 4:  SentenciaAsignacion();  break;
+    case 5:  RestoSentenciaAsignacion();  break;
+    case 6:  RestoSentenciaRestoAsignacion();  break;
+    case 7:  Expresion();  break;
+    case 8:  SentenciaWHILE();  break;
+    case 9:  SentenciaREPEAT();  break;
+    case 10:  SentenciaLOOP();  break;
+    case 11:  SentenciaFOR();  break;
+    case 12:  SentenciaWITH();  break;
+    case 13:  SentenciaRETURN();  break;
+    case 14:  ListaDeValores();  break;
+    case 15:  vacio();  break;
+    case 16:  RestoValores();  break;
+    case 17:  RestoExpresion();  break;
+    case 18:  ExpresionSimple();  break;
+    case 19:  RestoExpresionSimple();  break;
+    case 20:  termino();  break;
+    case 21:  factor();  break;
+    case 22:  numero();  break;
+    case 23:  numEntero();  break;
+    case 24:  numReal();  break;
   }
 }
