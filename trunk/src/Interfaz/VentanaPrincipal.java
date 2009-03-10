@@ -203,7 +203,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 //TablaSimbolos tabla = new TablaSimbolos();
                 SlkParser slk = new SlkParser();
 				//_tablaDeSimbolos = slk.parse(0, new SlkAction(), tokens, error, log , (short) 0, _tablaDeSimbolos);
-                               slk.parse(0, new SlkAction(_tablaDeSimbolos), tokens, error, log , (short) 0);
+                               slk.parse(0, new SlkAction(_tablaDeSimbolos), tokens, error, log , tree, (short) 0);
 
 				// Muestra la lista de errores (Si los hay)
 				StringBuffer salida = gestorDeErrores.dameListaErrores();

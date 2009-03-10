@@ -11,173 +11,71 @@ public class SlkAction {
     }
 
 	public void execute ( int number ){
-	/*	switch ( number ) {
-    case 1:  unidadDeCompilacion1();  break;
-    case 2:  unidadDeCompilacion2();  break;
-    case 3:  unidadDeCompilacion3();  break;
-    case 4:  moduloPrograma();  break;
-    case 5:  moduloDefinicion();  break;
-    case 6:  moduloImplementacion();  break;
-    case 7:  cabeceraModulo();  break;
-    case 8:  cabeceraDefinicion();  break;
-    case 9:  listaImportados();  break;
-    case 10:  listaExportados();  break;
-    case 11:  prioridad();  break;
-    case 12:  bloque();  break;
-    case 13:  definicionDeModulo1();  break;
-    case 14:  definicionDeModulo2();  break;
-    case 15:  definicionDeModulo3();  break;
-    case 16:  definicionDeModulo4();  break;
-    case 17:  parteDeclarativa();  break;
-    case 18:  declaracion1();  break;
-    case 19:  declaracion2();  break;
-    case 20:  declaracion3();  break;
-    case 21:  declaracion4();  break;
-    case 22:  declaracion5();  break;
-    case 23:  declaracionDeConstantes();  break;
-    case 24:  asociacionConstante();  break;
-    case 25:  DeclaracionDeTipos();  break;
-    case 26:  definicionDeTipo();  break;
-    case 27:  esquemaDeTipo1();  break;
-    case 28:  esquemaDeTipo2();  break;
-    case 29:  esquemaDeTipo3();  break;
-    case 30:  esquemaDeTipo4();  break;
-    case 31:  esquemaDeTipo5();  break;
-    case 32:  esquemaDeTipo6();  break;
-    case 33:  tipoSimple1();  break;
-    case 34:  tipoSimple2();  break;
-    case 35:  tipoSimple3();  break;
-    case 36:  tipoEnumerado();  break;
-    case 37:  vacio//();  break;
-    case 38:  restoDeTipo//();  break;
-    case 39:  tipoConjunto();  break;
-    case 40:  tipoFormacion();  break;
-    case 41:  tipoRegistro();  break;
-    case 42:  secuenciaDeListasDeCampos();  break;
-    case 43:  vacio();  break;
-    case 44:  listaDeCampos();  break;
-    case 45:  tipoPuntero();  break;
-    case 46:  tipoSubprograma();  break;
-    case 47:  listaDeTiposFormales();  break;
-    case 48:  declaracionDeVariables();  break;
-    case 49:  listaDeVariables();  break;
-    case 50:  declaracionSubprograma();  break;
-    case 51:  cabeceraSubprograma();  break;
-    case 52:  parametrosFormales();  break;
-    case 53:  grupoDeParametros();  break;
-    case 54:  declaracionModulo();  break;
-    case 55:  parteEjecutiva();  break;
-    case 56:  secuenciaDeSentencias();  break;
-    case 57:  sentencia1();  break;
-    case 58:  sentencia2();  break;
-    case 59:  sentencia3();  break;
-    case 60:  sentencia4();  break;
-    case 61:  sentencia5();  break;
-    case 62:  sentencia6();  break;
-    case 63:  sentencia7();  break;
-    case 64:  sentencia8();  break;
-    case 65:  sentencia9();  break;
-    case 66:  sentencia10();  break;
-    case 67:  sentencia11();  break;
-    case 68:  sentenciaAsignacion();  break;
-    case 69:  restoSentenciaAsignacion();  break;
-    case 70:  restoSentenciaRestoAsignacion1();  break;
-    case 71:  restoSentenciaRestoAsignacion2();  break;
-    case 72:  parteIzquierda1();  break;
-    case 73:  parteIzquierda2();  break;
-    case 74:  parteIzquierda3();  break;
-    case 75:  identificadorOProcPredef1();  break;
-    case 76:  identificadorOProcPredef2();  break;
-    case 77:  sentenciaIF();  break;
-    case 78:  restoSentenciaIF();  break;
-    case 79:  SentenciaCASE();  break;
-    case 80:  Caso();  break;
-    case 81:  SentenciaWHILE();  break;
-    case 82:  SentenciaREPEAT();  break;
-    case 83:  SentenciaLOOP();  break;
-    case 84:  SentenciaFOR();  break;
-    case 85:  SentenciaWITH();  break;
-    case 86:  SentenciaRETURN();  break;
-    case 87:  ListaDeValores();  break;
-    case 88:  RestoListaValores();  break;
-    case 89:  Valores();  break;
-    case 90:  RestoValores();  break;
-    case 91:  ExpresionConstante();  break;
-    case 92:  ExpresionConstanteSimple();  break;
-    case 93:  TerminoConstante();  break;
-    case 94:  FactorConstante1();  break;
-    case 95:  FactorConstante2();  break;
-    case 96:  FactorConstante3();  break;
-    case 97:  FactorConstante4();  break;
-    case 98:  FactorConstante5();  break;
-    case 99:  FactorConstante6();  break;
-    case 100:  FactorConstante7();  break;
-    case 101:  ParametrosDeLlamada();  break;
-    case 102:  ListaDeExpresiones();  break;
-    case 103:  RestoListaDeExpresiones();  break;
-    case 104:  Expresion();  break;
-    case 105:  RestoExpresion();  break;
-    case 106:  ExpresionSimple();  break;
-    case 107:  RestoExpresionSimple();  break;
-    case 108:  Signo1();  break;
-    case 109:  Signo2();  break;
-    case 110:  Termino();  break;
-    case 111:  RestoTermino();  break;
-    case 112:  Factor1();  break;
-    case 113:  Factor2();  break;
-    case 114:  Factor3();  break;
-    case 115:  Factor4();  break;
-    case 116:  Factor5();  break;
-    case 117:  Factor6();  break;
-    case 118:  Factor7();  break;
-    case 119:  Factor8();  break;
-    case 120:  Factor9();  break;
-    case 121:  RestoFactor1();  break;
-    case 122:  RestoFactor2();  break;
-    case 123:  RestoFactor3();  break;
-    case 124:  OperadorComparador1();  break;
-    case 125:  OperadorComparador2();  break;
-    case 126:  OperadorComparador3();  break;
-    case 127:  OperadorComparador4();  break;
-    case 128:  OperadorComparador5();  break;
-    case 129:  OperadorComparador6();  break;
-    case 130:  OperadorComparador7();  break;
-    case 131:  OperadorComparador8();  break;
-    case 132:  OperadorSumador1();  break;
-    case 133:  OperadorSumador2();  break;
-    case 134:  OperadorSumador3();  break;
-    case 135:  OperadorMultiplicador1();  break;
-    case 136:  OperadorMultiplicador2();  break;
-    case 137:  OperadorMultiplicador3();  break;
-    case 138:  OperadorMultiplicador4();  break;
-    case 139:  OperadorMultiplicador5();  break;
-    case 140:  OperadorMultiplicador6();  break;
-    case 141:  operadorUnario1();  break;
-    case 142:  operadorUnario2();  break;
-    case 143:  tipoFormal();  break;
-    case 144:  numero1();  break;
-    case 145:  numero2();  break;
-    case 146:  listaDeElementos();  break;
-    case 147:  elementos();  break;
-    case 148:  identificadorDeTipo1();  break;
-    case 149:  identificadorDeTipo2();  break;
-    case 150:  tipoPredefinido1();  break;
-    case 151:  tipoPredefinido2();  break;
-    case 152:  tipoPredefinido3();  break;
-    case 153:  tipoPredefinido4();  break;
-    case 154:  tipoPredefinido5();  break;
-    case 155:  tipoPredefinido6();  break;
-    case 156:  tipoPredefinido7();  break;
-    case 157:  tipoPredefinido8();  break;
-    case 158:  tipoPredefinido9();  break;
-    case 159:  constantePredefinida1();  break;
-    case 160:  constantePredefinida2();  break;
-    case 161:  constantePredefinida3();  break;
-    case 162:  listaIdentificadores();  break;
-    case 163:  restoListaIdentificadores();  break;
-  }
-*/
+		switch ( number ) {
+            case 1:  unidadDeCompilacion1();  break;
+            case 2:  unidadDeCompilacion2();  break;
+            case 3:  unidadDeCompilacion3();  break;
+            // Grupo 3 - Daniel Martín
+            case 4:  SentenciaWHILE();  break;
+            case 5:  SentenciaREPEAT();  break;
+            case 6:  SentenciaLOOP();  break;
+            case 7:  SentenciaFOR();  break;
+            case 8:  SentenciaWITH();  break;
+            case 9:  SentenciaRETURN();  break;
+            case 10:  ListaDeValores();  break;
+            case 11:  vacio();  break;
+            case 12:  RestoValores();  break;
+            // Siguiente persona
+        }
 		
 	}
+
+    private void ListaDeValores() {
+        System.out.println("---ListaDeValores---");
+    }
+
+    private void RestoValores() {
+        System.out.println("---RestoValores---");
+    }
+
+    private void SentenciaFOR() {
+        System.out.println("---SentenciaFOR---");
+    }
+
+    private void SentenciaLOOP() {
+        System.out.println("---SentenciaLOOP---");
+    }
+
+    private void SentenciaREPEAT() {
+        System.out.println("---SentenciaREPEAT---");
+    }
+
+    private void SentenciaRETURN() {
+        System.out.println("---SentenciaRETURN---");
+    }
+
+    private void SentenciaWHILE() {
+        System.out.println("---SentenciaWHILE---");
+    }
+
+    private void SentenciaWITH() {
+        System.out.println("---SentenciaWITH---");
+    }
+
+    private void unidadDeCompilacion1() {
+        System.out.println("---ModuloPrograma---");
+    }
+
+    private void unidadDeCompilacion2() {
+        System.out.println("---ModuloDefinicion---");
+    }
+
+    private void unidadDeCompilacion3() {
+        System.out.println("---ModuloImplementacion---");
+    }
+
+    private void vacio() {
+        System.out.println("---Vacio---");
+    }
 }
 	

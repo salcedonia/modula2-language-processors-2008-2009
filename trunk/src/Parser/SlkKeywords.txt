@@ -86,6 +86,7 @@ public static String[] name = {
 ,"HALT"
 ,"ABS"
 ,"CAP"
+,"ParametroChar"
 ,"CHR"
 ,"FLOAT"
 ,"HIGH"
@@ -179,6 +180,7 @@ public static short[] token = {
 ,SlkConstants.HALT_ 
 ,SlkConstants.ABS_ 
 ,SlkConstants.CAP_ 
+,SlkConstants.PARAMETROCHAR_ 
 ,SlkConstants.CHR_ 
 ,SlkConstants.FLOAT_ 
 ,SlkConstants.HIGH_ 

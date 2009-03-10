@@ -6,5 +6,17 @@
 public void execute ( int  number )
 {
   switch ( number ) {
+    case 1:  unidadDeCompilacion1();  break;
+    case 2:  unidadDeCompilacion2();  break;
+    case 3:  unidadDeCompilacion3();  break;
+    case 4:  SentenciaWHILE();  break;
+    case 5:  SentenciaREPEAT();  break;
+    case 6:  SentenciaLOOP();  break;
+    case 7:  SentenciaFOR();  break;
+    case 8:  SentenciaWITH();  break;
+    case 9:  SentenciaRETURN();  break;
+    case 10:  ListaDeValores();  break;
+    case 11:  vacio();  break;
+    case 12:  RestoValores();  break;
   }
 }
