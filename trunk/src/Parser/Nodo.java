@@ -19,23 +19,42 @@ import java.util.ArrayList;
  * @author Daniel
  */
 public class Nodo {
-    private ArrayList tipo; // Tipo semántico del objeto
+    private ArrayList tipos; // Tipo semántico del objeto
 
     public Nodo() {
         // Constructora por defecto
-        tipo = new ArrayList();
+        tipos = new ArrayList();
     }
 
     public ArrayList getTipo() {
-        return this.tipo;
+        return this.tipos;
     }
 
-    public void setTipo(ArrayList tipo) {
-        this.tipo = tipo;
+    public void setTipo(ArrayList tipos) {
+        this.tipos = tipos;
     }
 
     public ArrayList getArray() {
-        return tipo;
+        return tipos;
+    }
+
+    public void concatRight(String type){
+        tipos.add(type);
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder trace = new StringBuilder("Nodo{tipo: ");
+        trace.append(tipos);
+        trace.append("; tipo.size: ");
+        if(tipos != null){
+            trace.append(tipos.size());
+        }
+        else{
+            trace.append("0");
+        }
+        trace.append("}");
+        return trace.toString();
     }
 
 }

@@ -154,7 +154,7 @@ SentenciaRETURN
 EXIT
 
 SentenciaAsignacion:
-Identificador RestoSentenciaAsignacion _action_RestoSentenciaAsignacion
+Identificador _action_Identificador RestoSentenciaAsignacion _action_RestoSentenciaAsignacion
 
 RestoSentenciaAsignacion:
 ParteIzquierda RestoSentenciaRestoAsignacion _action_RestoSentenciaRestoAsignacion
@@ -248,21 +248,21 @@ Expresion RestoListaDeExpresiones
 
 RestoListaDeExpresiones:
 _epsilon_
-, Expresion RestoListaDeExpresiones
+, Expresion _action_Expresion RestoListaDeExpresiones
 
 Expresion:
-ExpresionSimple RestoExpresion _action_RestoExpresion
+ExpresionSimple _action_ExpresionSimple RestoExpresion _action_RestoExpresion
 
 RestoExpresion:
 _epsilon_
 OperadorComparador ExpresionSimple _action_ExpresionSimple
 
 ExpresionSimple:
-Signo Termino RestoExpresionSimple _action_RestoExpresionSimple
+Signo _action_Signo Termino RestoExpresionSimple _action_RestoExpresionSimple
 
 RestoExpresionSimple:
 _epsilon_
-OperadorSumador Termino _action_termino RestoExpresionSimple
+OperadorSumador _action_OperadorSumador Termino _action_termino RestoExpresionSimple
 
 Signo:
 _epsilon_

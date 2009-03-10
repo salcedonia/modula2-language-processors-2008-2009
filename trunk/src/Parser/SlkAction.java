@@ -2,16 +2,52 @@ package Parser;
 
 import TablaSimbolos.TablaSimbolos;
 import java.util.ArrayList;
+import org.apache.log4j.Logger;
 
 public class SlkAction {
 
     private TablaSimbolos _tablaDeSimbolos;
-    
+    /** Pila que contiene la informacion de los tipos */
+    private Stack stack = new Stack();
+    /**Variable que lleva la cuenta del numero de argumentos(numeros enteros, reales, identificadores*/
+
+    private static final Logger logger = Logger.getLogger(SlkAction.class);
     public SlkAction(TablaSimbolos tabla) {
       _tablaDeSimbolos = tabla;
     }
 
 	public void execute ( int number ){
+<<<<<<< .mine
+		switch ( number ) {
+     case 1:  unidadDeCompilacion1();  break;
+    case 2:  unidadDeCompilacion2();  break;
+    case 3:  unidadDeCompilacion3();  break;
+    case 4:  SentenciaAsignacion();  break;
+    case 5:  Identificador();  break;
+    case 6:  RestoSentenciaAsignacion();  break;
+    case 7:  RestoSentenciaRestoAsignacion();  break;
+    case 8:  Expresion();  break;
+    case 9:  SentenciaWHILE();  break;
+    case 10:  SentenciaREPEAT();  break;
+    case 11:  SentenciaLOOP();  break;
+    case 12:  SentenciaFOR();  break;
+    case 13:  SentenciaWITH();  break;
+    case 14:  SentenciaRETURN();  break;
+    case 15:  ListaDeValores();  break;
+    case 16:  vacio();  break;
+    case 17:  RestoValores();  break;
+    case 18:  ExpresionSimple();  break;
+    case 19:  RestoExpresion();  break;
+    case 20:  Signo();  break;
+    case 21:  RestoExpresionSimple();  break;
+    case 22:  OperadorSumador();  break;
+    case 23:  termino();  break;
+    case 24:  factor();  break;
+    case 25:  numero();  break;
+    case 26:  numEntero();  break;
+    case 27:  numReal();  break;
+        }
+=======
 		  switch ( number ) {
 		    case 1:  unidadDeCompilacion1();  break;
 		    case 2:  unidadDeCompilacion2();  break;
@@ -50,35 +86,84 @@ public class SlkAction {
 		    case 35:  tipoPredefinido();  break;
 		    case 36:  Identificador();  break;
 		  }
+>>>>>>> .r30
 		
 	}
 
     private void Expresion() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en Expresion");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void ExpresionSimple() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en ExpresionSimple");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
+    }
+
+    private void Identificador() {
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en identificador; \n Suponiendo que esta en la tabla de simbolos");
+        }
     }
 
     private void ListaDeValores() {
         System.out.println("---ListaDeValores---");
     }
 
+    private void OperadorSumador() {
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en operadorSumador");
+        }
+    }
+
     private void RestoExpresion() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en restoExpresion");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void RestoExpresionSimple() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en restoExpresionSimple");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void RestoSentenciaAsignacion() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en restoSentenciaAsignacion");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void RestoSentenciaRestoAsignacion() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en restoSentenciRestoaAsignacion");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void RestoValores() {
@@ -86,7 +171,18 @@ public class SlkAction {
     }
 
     private void SentenciaAsignacion() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en sentencia asignacion");
+        }
+        Nodo nodo = stack.pop();
+        if(logger.isDebugEnabled()){
+            logger.debug("Asignando el tipo " + nodo.toString());
+        }
+        
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void SentenciaFOR() {
@@ -114,33 +210,55 @@ public class SlkAction {
         System.out.println("---SentenciaWITH---");
     }
 
+    private void Signo() {
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en signo");
+        }
+    }
+
     private void factor() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en factor");
+        }
+=======
     	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void numEntero() {
-        System.out.println("---numEntero---");
-        Nodo entero = new Nodo();
-        ArrayList array = entero.getArray();
-        array.add("Integer");
-        entero.setTipo(array);
+        if(logger.isDebugEnabled()){
+            logger.debug("Introduciendo el tipo Entero");
+        }
+        Nodo nodo = new Nodo();
+        nodo.concatRight("INTEGER");
+        stack.push(nodo);
     }
 
     private void numReal() {
-        System.out.println("---numReal---");
-        Nodo entero = new Nodo();
-        ArrayList array = entero.getArray();
-        array.add("Real");
-        entero.setTipo(array);
+        if(logger.isDebugEnabled()){
+            logger.debug("Introduciendo el tipo Real");
+        }
+        Nodo nodo = new Nodo();
+        nodo.concatRight("REAL");
+        stack.push(nodo);
     }
 
     private void numero() {
-        System.out.println("---numero---");
-        Nodo numero = new Nodo();
+         if(logger.isDebugEnabled()){
+            logger.debug("Entrando en numero");
+        }
+        
     }
 
     private void termino() {
+<<<<<<< .mine
+        if(logger.isDebugEnabled()){
+            logger.debug("Entrando en termino");
+        }
+=======
  	   System.out.println("---not yet implemented---");
+>>>>>>> .r30
     }
 
     private void unidadDeCompilacion1() {
