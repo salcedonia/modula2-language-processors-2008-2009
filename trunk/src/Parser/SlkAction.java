@@ -146,5 +146,9 @@ public class SlkAction {
     private void vacio() {
         System.out.println("---Vacio---");
     }
+    
+    private boolean esUnico(String id){
+        return _tablaDeSimbolos.esta(id);
+    }
 }
 	
