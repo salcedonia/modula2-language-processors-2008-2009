@@ -54,11 +54,11 @@ public class SlkAction {
 	}
 
     private void Expresion() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void ExpresionSimple() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void ListaDeValores() {
@@ -66,19 +66,19 @@ public class SlkAction {
     }
 
     private void RestoExpresion() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void RestoExpresionSimple() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void RestoSentenciaAsignacion() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void RestoSentenciaRestoAsignacion() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void RestoValores() {
@@ -86,7 +86,7 @@ public class SlkAction {
     }
 
     private void SentenciaAsignacion() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void SentenciaFOR() {
@@ -115,7 +115,7 @@ public class SlkAction {
     }
 
     private void factor() {
-        throw new UnsupportedOperationException("Not yet implemented");
+    	   System.out.println("---not yet implemented---");
     }
 
     private void numEntero() {
@@ -140,7 +140,7 @@ public class SlkAction {
     }
 
     private void termino() {
-        throw new UnsupportedOperationException("Not yet implemented");
+ 	   System.out.println("---not yet implemented---");
     }
 
     private void unidadDeCompilacion1() {

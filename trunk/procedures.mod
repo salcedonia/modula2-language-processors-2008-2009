@@ -5,6 +5,7 @@ MODULE EscribeRecursivamente ;
 	VAR
 		auno:INTEGER;
 	BEGIN
+	auno := 2 mod 1;
 	END uno;
 	PROCEDURE dos;
 	VAR
