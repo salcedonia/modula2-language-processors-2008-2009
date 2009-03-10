@@ -17,37 +17,7 @@ public class SlkAction {
     }
 
 	public void execute ( int number ){
-<<<<<<< .mine
-		switch ( number ) {
-     case 1:  unidadDeCompilacion1();  break;
-    case 2:  unidadDeCompilacion2();  break;
-    case 3:  unidadDeCompilacion3();  break;
-    case 4:  SentenciaAsignacion();  break;
-    case 5:  Identificador();  break;
-    case 6:  RestoSentenciaAsignacion();  break;
-    case 7:  RestoSentenciaRestoAsignacion();  break;
-    case 8:  Expresion();  break;
-    case 9:  SentenciaWHILE();  break;
-    case 10:  SentenciaREPEAT();  break;
-    case 11:  SentenciaLOOP();  break;
-    case 12:  SentenciaFOR();  break;
-    case 13:  SentenciaWITH();  break;
-    case 14:  SentenciaRETURN();  break;
-    case 15:  ListaDeValores();  break;
-    case 16:  vacio();  break;
-    case 17:  RestoValores();  break;
-    case 18:  ExpresionSimple();  break;
-    case 19:  RestoExpresion();  break;
-    case 20:  Signo();  break;
-    case 21:  RestoExpresionSimple();  break;
-    case 22:  OperadorSumador();  break;
-    case 23:  termino();  break;
-    case 24:  factor();  break;
-    case 25:  numero();  break;
-    case 26:  numEntero();  break;
-    case 27:  numReal();  break;
-        }
-=======
+
 		  switch ( number ) {
 		    case 1:  unidadDeCompilacion1();  break;
 		    case 2:  unidadDeCompilacion2();  break;
@@ -86,28 +56,23 @@ public class SlkAction {
 		    case 35:  tipoPredefinido();  break;
 		    case 36:  Identificador();  break;
 		  }
->>>>>>> .r30
 		
 	}
 
     private void Expresion() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en Expresion");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void ExpresionSimple() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en ExpresionSimple");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void Identificador() {
@@ -127,43 +92,35 @@ public class SlkAction {
     }
 
     private void RestoExpresion() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en restoExpresion");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void RestoExpresionSimple() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en restoExpresionSimple");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void RestoSentenciaAsignacion() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en restoSentenciaAsignacion");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void RestoSentenciaRestoAsignacion() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en restoSentenciRestoaAsignacion");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void RestoValores() {
@@ -171,7 +128,7 @@ public class SlkAction {
     }
 
     private void SentenciaAsignacion() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en sentencia asignacion");
         }
@@ -179,10 +136,7 @@ public class SlkAction {
         if(logger.isDebugEnabled()){
             logger.debug("Asignando el tipo " + nodo.toString());
         }
-        
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+      
     }
 
     private void SentenciaFOR() {
@@ -217,13 +171,10 @@ public class SlkAction {
     }
 
     private void factor() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en factor");
         }
-=======
-    	   System.out.println("---not yet implemented---");
->>>>>>> .r30
     }
 
     private void numEntero() {
@@ -252,13 +203,11 @@ public class SlkAction {
     }
 
     private void termino() {
-<<<<<<< .mine
+
         if(logger.isDebugEnabled()){
             logger.debug("Entrando en termino");
         }
-=======
- 	   System.out.println("---not yet implemented---");
->>>>>>> .r30
+
     }
 
     private void unidadDeCompilacion1() {
@@ -319,9 +268,7 @@ private void Elementos() {
 private void tipoPredefinido() {
 	System.out.println("---regla tipo predefinido---");
 }
-private void Identificador() {
-	System.out.println("---regla identificador---");
-}  
+
 //**************************************************/    
     
 }

@@ -226,7 +226,7 @@ public class TablaSimbolos {
     public void setExportadas(ArrayList exportadas) {
         this.exportadas = exportadas;
     }
-    public void añadirVariableExportada(String lexema)
+    public void anadirVariableExportada(String lexema)
     {
         if(!exportadas.contains(lexema))
         {

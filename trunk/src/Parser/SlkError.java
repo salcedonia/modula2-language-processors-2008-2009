@@ -6,10 +6,10 @@ import GestorDeErrores.TErrorSintactico;
 
 //***************************************************************************//
 /**
- * Clase que gestiona los errores cometidos durante el análisis sintáctico 
+ * Clase que gestiona los errores cometidos durante el anï¿½lisis sintï¿½ctico 
  * llevado a cabo por la clase SlkParser.
  * 
- * @author Javier Salcedo Gómez
+ * @author Javier Salcedo Gï¿½mez
  */
 public class SlkError {
 
@@ -23,7 +23,7 @@ public class SlkError {
 	/**
 	 * Constructor de la clase SlkError.
 	 * 
-	 * @param tokens Tokens leídos por el Scanner.
+	 * @param tokens Tokens leï¿½dos por el Scanner.
 	 * @param log Registro de las acciones aplicadas.
 	 */
 	public SlkError (SlkToken tokens, SlkLog log, GestorErrores gestor){
@@ -43,10 +43,8 @@ public class SlkError {
 	 */
 	public short mismatch (short terminal, short token){
 		
-		String error = "Esperaba \"" + 
-						SlkString.GetSymbolName (terminal) +
-		               "\" pero encontró \"" 
-						+ SlkString.GetSymbolName (token) + 
+		String error = "Esperaba \"" + SlkString.GetSymbolName (terminal) +
+		               "\" pero encontrï¿½ \"" + SlkString.GetSymbolName (token) + 
 						"\".";
 		_gestorDeErrores.insertaErrorSintactico(new TErrorSintactico(ErroresSintacticos.ERROR_SINTACTICO_IMPOSIBLE_EMPAREJAR_TERMINAL_CON_TOKEN, error, _tokens._analizadorLexico.yyline, _tokens._analizadorLexico.yycolumn));
 		return token;
@@ -76,8 +74,8 @@ public class SlkError {
 	 */
 	public void input_left (){
 		
-		String error =  "La pila del parser ha quedado vacía " +
-						"pero todavía quedan por analizar.";
+		String error =  "La pila del parser ha quedado vacï¿½a " +
+						"pero todavï¿½a quedan por analizar.";
 		
 		_gestorDeErrores.insertaErrorSintactico(new TErrorSintactico(ErroresSintacticos.ERROR_SINTACTICO_PILAVACIA_ANTES_DE_TIEMPO, error, _tokens._analizadorLexico.yyline, _tokens._analizadorLexico.yycolumn));
 	}
