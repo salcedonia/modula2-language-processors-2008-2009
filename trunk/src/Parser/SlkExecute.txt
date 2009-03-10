@@ -18,5 +18,7 @@ public void execute ( int  number )
     case 10:  ListaDeValores();  break;
     case 11:  vacio();  break;
     case 12:  RestoValores();  break;
+    case 13:  numEntero();  break;
+    case 14:  numReal();  break;
   }
 }

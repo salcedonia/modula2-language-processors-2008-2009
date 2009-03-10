@@ -1,6 +1,7 @@
 package Parser;
 
 import TablaSimbolos.TablaSimbolos;
+import java.util.ArrayList;
 
 public class SlkAction {
 
@@ -26,6 +27,8 @@ public class SlkAction {
             case 11:  vacio();  break;
             case 12:  RestoValores();  break;
             // Siguiente persona
+            case 13:  numEntero();  break;
+            case 14:  numReal();  break;
         }
 		
 	}
@@ -56,10 +59,27 @@ public class SlkAction {
 
     private void SentenciaWHILE() {
         System.out.println("---SentenciaWHILE---");
+        Nodo sentWHILE = new Nodo();
     }
 
     private void SentenciaWITH() {
         System.out.println("---SentenciaWITH---");
+    }
+
+    private void numEntero() {
+        System.out.println("---numEntero---");
+        Nodo entero = new Nodo();
+        ArrayList array = entero.getArray();
+        array.add("Integer");
+        entero.setTipo(array);
+    }
+
+    private void numReal() {
+        System.out.println("---numReal---");
+        Nodo entero = new Nodo();
+        ArrayList array = entero.getArray();
+        array.add("Real");
+        entero.setTipo(array);
     }
 
     private void unidadDeCompilacion1() {

@@ -5,6 +5,8 @@
 
 package Parser;
 
+import java.util.ArrayList;
+
 /**
  *
  * La clase Nodo contiene los atributos heredados y/o sintetizados
@@ -17,18 +19,23 @@ package Parser;
  * @author Daniel
  */
 public class Nodo {
-    private String tipo; // Tipo semántico del objeto
+    private ArrayList tipo; // Tipo semántico del objeto
 
     public Nodo() {
         // Constructora por defecto
+        tipo = new ArrayList();
     }
 
-    public String getTipo() {
+    public ArrayList getTipo() {
         return this.tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(ArrayList tipo) {
         this.tipo = tipo;
+    }
+
+    public ArrayList getArray() {
+        return tipo;
     }
 
 }

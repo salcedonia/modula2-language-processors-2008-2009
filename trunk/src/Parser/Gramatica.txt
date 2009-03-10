@@ -326,8 +326,8 @@ TipoFormal:
 [ ARRAY OF ] IdentificadorDeTipo 
  
 Numero:
-NumeroEntero 
-NumeroReal 
+NumeroEntero _action_numEntero
+NumeroReal _action_numReal
 
 ListaDeElementos:
 [ Elementos { , Elementos } ] 
