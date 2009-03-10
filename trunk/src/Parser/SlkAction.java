@@ -162,20 +162,49 @@ public class SlkAction {
     private boolean esUnico(String id){
         return _tablaDeSimbolos.esta(id);
     }
+
+/*****************************************************************/
+//REGLAS ANTONIO DE MIGUEL 
     
-private void multiplicadorPor(){}
-private void multiplicadorDivision(){}
-private void multiplicadorDIV(){}
-private void multiplicadorMOD(){}
-private void multiplicadorAMPERSAND(){}
-private void multiplicadorAND(){}
-private void operdadorNOT(){}
-private void TipFormalARRAY(){}
-private void listaElementos() {} 
-private void Elementos() {}
-private void tipoPredefinido() {}
-private void Identificador() {}  
-    
+private void multiplicadorPor(){
+    System.out.println("---regla multiplicacion POR---");
+	
+}
+private void multiplicadorDivision(){
+    System.out.println("---regla multiplicacion Division---");
+	
+}
+private void multiplicadorDIV(){
+	System.out.println("---regla multiplicacion DIV---");
+}
+private void multiplicadorMOD(){
+	System.out.println("---regla multiplicacion MOD---");
+}
+private void multiplicadorAMPERSAND(){
+	System.out.println("---regla multiplicacion AMPERSAND---");
+}
+private void multiplicadorAND(){
+	System.out.println("---regla multiplicacion AND---");
+}
+private void operdadorNOT(){
+	System.out.println("---regla NOT---");
+}
+private void TipFormalARRAY(){
+	System.out.println("---regla tipo formal array---");
+}
+private void listaElementos() {
+	System.out.println("---regla lista elementos---");
+} 
+private void Elementos() {
+	System.out.println("---regla elementos---");
+}
+private void tipoPredefinido() {
+	System.out.println("---regla tipo predefinido---");
+}
+private void Identificador() {
+	System.out.println("---regla identificador---");
+}  
+//**************************************************/    
     
 }
 	
