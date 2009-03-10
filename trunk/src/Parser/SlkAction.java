@@ -12,32 +12,44 @@ public class SlkAction {
     }
 
 	public void execute ( int number ){
-		switch ( number ) {
-            case 1:  unidadDeCompilacion1();  break;
-    case 2:  unidadDeCompilacion2();  break;
-    case 3:  unidadDeCompilacion3();  break;
-    case 4:  SentenciaAsignacion();  break;
-    case 5:  RestoSentenciaAsignacion();  break;
-    case 6:  RestoSentenciaRestoAsignacion();  break;
-    case 7:  Expresion();  break;
-    case 8:  SentenciaWHILE();  break;
-    case 9:  SentenciaREPEAT();  break;
-    case 10:  SentenciaLOOP();  break;
-    case 11:  SentenciaFOR();  break;
-    case 12:  SentenciaWITH();  break;
-    case 13:  SentenciaRETURN();  break;
-    case 14:  ListaDeValores();  break;
-    case 15:  vacio();  break;
-    case 16:  RestoValores();  break;
-    case 17:  RestoExpresion();  break;
-    case 18:  ExpresionSimple();  break;
-    case 19:  RestoExpresionSimple();  break;
-    case 20:  termino();  break;
-    case 21:  factor();  break;
-    case 22:  numero();  break;
-    case 23:  numEntero();  break;
-    case 24:  numReal();  break;
-        }
+		  switch ( number ) {
+		    case 1:  unidadDeCompilacion1();  break;
+		    case 2:  unidadDeCompilacion2();  break;
+		    case 3:  unidadDeCompilacion3();  break;
+		    case 4:  SentenciaAsignacion();  break;
+		    case 5:  RestoSentenciaAsignacion();  break;
+		    case 6:  RestoSentenciaRestoAsignacion();  break;
+		    case 7:  Expresion();  break;
+		    case 8:  SentenciaWHILE();  break;
+		    case 9:  SentenciaREPEAT();  break;
+		    case 10:  SentenciaLOOP();  break;
+		    case 11:  SentenciaFOR();  break;
+		    case 12:  SentenciaWITH();  break;
+		    case 13:  SentenciaRETURN();  break;
+		    case 14:  ListaDeValores();  break;
+		    case 15:  vacio();  break;
+		    case 16:  RestoValores();  break;
+		    case 17:  RestoExpresion();  break;
+		    case 18:  ExpresionSimple();  break;
+		    case 19:  RestoExpresionSimple();  break;
+		    case 20:  termino();  break;
+		    case 21:  factor();  break;
+		    case 22:  numero();  break;
+		    case 23:  multiplicadorPor();  break;
+		    case 24:  multiplicadorDivision();  break;
+		    case 25:  multiplicadorDIV();  break;
+		    case 26:  multiplicadorMOD();  break;
+		    case 27:  multiplicadorAMPERSAND();  break;
+		    case 28:  multiplicadorAND();  break;
+		    case 29:  operdadorNOT();  break;
+		    case 30:  TipFormalARRAY();  break;
+		    case 31:  numEntero();  break;
+		    case 32:  numReal();  break;
+		    case 33:  listaElementos();  break;
+		    case 34:  Elementos();  break;
+		    case 35:  tipoPredefinido();  break;
+		    case 36:  Identificador();  break;
+		  }
 		
 	}
 
@@ -150,5 +162,20 @@ public class SlkAction {
     private boolean esUnico(String id){
         return _tablaDeSimbolos.esta(id);
     }
+    
+private void multiplicadorPor(){}
+private void multiplicadorDivision(){}
+private void multiplicadorDIV(){}
+private void multiplicadorMOD(){}
+private void multiplicadorAMPERSAND(){}
+private void multiplicadorAND(){}
+private void operdadorNOT(){}
+private void TipFormalARRAY(){}
+private void listaElementos() {} 
+private void Elementos() {}
+private void tipoPredefinido() {}
+private void Identificador() {}  
+    
+    
 }
 	

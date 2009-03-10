@@ -155,7 +155,7 @@ public class InsertarToken extends javax.swing.JPanel {
                 "Inserte el nombre de la variable a exportar",  "Nombre de la variable",  JOptionPane.QUESTION_MESSAGE);
              if(contenido != null)
              {
-                 tabla.aÃ±adirVariableExportada(contenido);
+                 tabla.añadirVariableExportada(contenido);
                  tabla.insertarIdentificador(contenido);
              }
              else {
