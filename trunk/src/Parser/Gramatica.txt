@@ -422,4 +422,4 @@ ODD ( Expresion )
 ORD ( Expresion )
 SIZE ( IdentificadorDeTipo )
 TRUNC ( Expresion )
-VAL ( IdentificadorDeTipo , Expresion )
+VAL ( IdentificadorDeTipo , Expresion ) _action_val
