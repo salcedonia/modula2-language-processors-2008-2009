@@ -5,6 +5,7 @@
 
 package Parser;
 
+import Scanner.TipoToken;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +20,26 @@ import java.util.ArrayList;
  * @author Daniel
  */
 public class Nodo {
-    private ArrayList tipos; // Tipo semántico del objeto
+    private ArrayList tipos = null; // Tipo semántico del objeto
+
+    private String valor;
+
+    public ArrayList getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(ArrayList tipos) {
+        this.tipos = tipos;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
 
     public Nodo() {
         // Constructora por defecto
@@ -38,7 +58,10 @@ public class Nodo {
         return tipos;
     }
 
-    public void concatRight(String type){
+    public void concatRight(TipoToken type){
+        if(tipos == null){
+            tipos = new ArrayList();
+        }
         tipos.add(type);
     }
 
