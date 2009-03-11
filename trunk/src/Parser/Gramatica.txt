@@ -31,7 +31,7 @@ Prioridad:
 ExpresionConstante
 
 Bloque:
-ParteDeclarativa ParteEjecutiva END
+ParteDeclarativa _action_CierraAmbito ParteEjecutiva END
 
 DefinicionDeModulo:
 DeclaracionDeConstantes
@@ -46,11 +46,11 @@ ParteDeclarativa:
 { Declaracion }
 
 Declaracion:
-DeclaracionDeConstantes
-DeclaracionDeTipos
-DeclaracionDeVariables
-DeclaracionSubprograma
-DeclaracionModulo
+_action_Declaracion DeclaracionDeConstantes
+_action_Declaracion DeclaracionDeTipos
+_action_Declaracion DeclaracionDeVariables
+_action_Declaracion DeclaracionSubprograma
+_action_Declaracion DeclaracionModulo
 
 DeclaracionDeConstantes:
 CONST { AsociacionConstante ; }
@@ -63,9 +63,9 @@ TYPE { DefinicionDeTipo ; }
 
 DefinicionDeTipo:
 Identificador = EsquemaDeTipo
- 
+
 EsquemaDeTipo:
-TipoSimple
+TipoSimple _action_tipoSimple
 TipoConjunto
 TipoFormacion
 TipoRegistro
@@ -74,14 +74,14 @@ TipoSubprograma
 
 TipoSimple:
 TipoEnumerado
-IdentificadorDeTipo RestoDeTipo
-\[ ExpresionConstante .. ExpresionConstante \] // Subrango
+IdentificadorDeTipo RestoDeTipo _action_tipoSimple2
+\[ ExpresionConstante .. ExpresionConstante \] _action_subrango // Subrango
 
 TipoEnumerado:
-( ListaDeIdentificadores )
+( ListaDeIdentificadores ) _action_listaIdentificadores
 
 RestoDeTipo:
-_epsilon_ // Simple
+_epsilon_ _action_vacio // Simple
 \[ ExpresionConstante .. ExpresionConstante \] // Subrango
 
 TipoConjunto:
@@ -102,7 +102,6 @@ ListaDeIdentificadores : EsquemaDeTipo
 
 TipoPuntero:
 POINTER TO EsquemaDeTipo
-
 TipoSubprograma:
 PROCEDURE [ ListaDeTiposFormales ]
 
@@ -110,10 +109,10 @@ ListaDeTiposFormales:
 ( [ [ VAR ] TipoFormal { , [ VAR ] TipoFormal } ] ) [ : IdentificadorDeTipo ]
 
 DeclaracionDeVariables:
-VAR { ListaDeVariables ; }
+VAR _action_variable { ListaDeVariables ; } _action_cierravariable
 
 ListaDeVariables:
-ListaDeIdentificadores : EsquemaDeTipo
+ListaDeIdentificadores _action_Marca : EsquemaDeTipo _action_listaVariables
 
 DeclaracionSubprograma:
 CabeceraSubprograma ; Bloque Identificador ;
@@ -128,19 +127,19 @@ GrupoDeParametros:
 [ VAR ] ListaDeIdentificadores : TipoFormal
 
 DeclaracionModulo:
-MODULE Identificador [ ExpresionConstante ] ; { ListaImportados ; } [ ListaExportados ; ] Bloque Identificador ; 
+MODULE Identificador [ ExpresionConstante ] ; { ListaImportados ; } [ ListaExportados ; ] Bloque Identificador ;
 
 //----------------------------------------------//
 //		SENTENCIAS EJECUTABLES	   	//
 //----------------------------------------------//
 ParteEjecutiva:
-[ BEGIN SecuenciaDeSentencias ]
+[ BEGIN _action_Begin SecuenciaDeSentencias ]
 
 SecuenciaDeSentencias:
 Sentencia { ; Sentencia }
 
 Sentencia:
-_epsilon_ 
+_epsilon_
 SentenciaAsignacion _action_SentenciaAsignacion
 SentenciaIF
 SentenciaCASE
@@ -174,13 +173,13 @@ IdentificadorOProcPredef:
 Identificador
 LlamadaProcedimientoPredefinido
 
-SentenciaIF: 
+SentenciaIF:
 IF Expresion THEN SecuenciaDeSentencias RestoSentenciaIF END
 
 RestoSentenciaIF:
 { ELSIF Expresion THEN SecuenciaDeSentencias } [ ELSE SecuenciaDeSentencias ]
 
-SentenciaCASE: 
+SentenciaCASE:
 CASE Expresion OF Caso { | Caso } [ ELSE SecuenciaDeSentencias ] END
 
 Caso:
@@ -192,7 +191,7 @@ WHILE Expresion DO SecuenciaDeSentencias END _action_SentenciaWHILE
 SentenciaREPEAT:
 REPEAT SecuenciaDeSentencias UNTIL Expresion _action_SentenciaREPEAT
 
-SentenciaLOOP: 
+SentenciaLOOP:
 LOOP SecuenciaDeSentencias END _action_SentenciaLOOP
 
 SentenciaFOR:
@@ -244,7 +243,7 @@ ParametrosDeLlamada:
 ( [ ListaDeExpresiones ] )
 
 ListaDeExpresiones:
-Expresion RestoListaDeExpresiones 
+Expresion RestoListaDeExpresiones
 
 RestoListaDeExpresiones:
 _epsilon_
@@ -258,11 +257,11 @@ _epsilon_
 OperadorComparador ExpresionSimple _action_ExpresionSimple
 
 ExpresionSimple:
-Signo _action_Signo Termino RestoExpresionSimple _action_RestoExpresionSimple
+Signo Termino _action_Signo RestoExpresionSimple _action_RestoExpresionSimple
 
 RestoExpresionSimple:
 _epsilon_
-OperadorSumador _action_OperadorSumador Termino _action_termino RestoExpresionSimple
+OperadorSumador Termino _action_termino  _action_OperadorSumador RestoExpresionSimple
 
 Signo:
 _epsilon_
@@ -273,96 +272,96 @@ Termino:
 Factor _action_factor RestoTermino
 
 RestoTermino:
-_epsilon_	
-OperadorMultiplicador Factor RestoTermino 
+_epsilon_
+OperadorMultiplicador Factor RestoTermino
 
 Factor:
 Identificador RestoFactor
-ConstantePredefinida 
+ConstantePredefinida
 Numero _action_numero
 TipoPredefinido \{ ListaDeElementos \}
-Cadena 
-Caracter 
-( Expresion ) 
-OperadorUnario Factor 
-LlamadaFuncionPredefinida 
+Cadena
+Caracter
+( Expresion )
+OperadorUnario Factor
+LlamadaFuncionPredefinida
 
 RestoFactor:
-\{ ListaDeElementos \} 
-ParametrosDeLlamada 
-ParteIzquierda 
+\{ ListaDeElementos \}
+ParametrosDeLlamada
+ParteIzquierda
 
 OperadorComparador:
-= 
-<> 
-# 
-< 
-<= 
-> 
->= 
-IN 
+= _action_igual
+<> _action_distinto
+# _action_distinto2
+< _action_menor
+<= _action_menorIgual
+> _action_mayor
+>= _action_mayorIgual
+IN _action_operadorIn
 
 OperadorSumador:
-+ 
-- 
-OR 
++ _action_suma
+- _action_resta
+OR _action_operadorOr
 
 OperadorMultiplicador:
-*  _action_multiplicadorPor
-/  _action_multiplicadorDivision
-DIV  _action_multiplicadorDIV
-MOD _action_multiplicadorMOD
-& 	_action_multiplicadorAMPERSAND
-AND _action_multiplicadorAND
+* _action_mult
+/ _action_division
+DIV _action_divisionEntera
+MOD _action_operadorModulo
+& _action_ampersand
+AND _action_operadorAnd
 
 OperadorUnario:
-NOT _action_operdadorNOT
- 
+NOT _action_operadorNot
+~ _action_operadorComplemento
 
 //----------------------------------------------//
 //		ELEMENTOS BASICOS	   	//
 //----------------------------------------------//
 TipoFormal:
-[ ARRAY OF ] IdentificadorDeTipo _action_TipFormalARRAY
- 
+[ ARRAY OF ] IdentificadorDeTipo
+
 Numero:
 NumeroEntero _action_numEntero
 NumeroReal _action_numReal
 
 ListaDeElementos:
-[ Elementos { , Elementos } ]    _action_listaElementos
+[ Elementos { , Elementos } ]
 
 Elementos:
-ExpresionConstante [ .. ExpresionConstante ] _action_Elementos
+ExpresionConstante [ .. ExpresionConstante ]
 
 // TIPOS
 IdentificadorDeTipo:
-TipoPredefinido  _action_tipoPredefinido
-Identificador	_action_Identificador
+TipoPredefinido _action_tipoPredefinido
+Identificador
 
 TipoPredefinido:
-BITSET 
-BOOLEAN 
-CARDINAL 
-CHAR 
-INTEGER 
-LONGINT 
-LONGREAL 
-PROC 
-REAL 
+BITSET _action_bitset
+BOOLEAN _action_booleano
+CARDINAL _action_cardinal
+CHAR _action_caracter
+INTEGER _action_entero
+LONGINT _action_longint
+LONGREAL _action_longreal
+PROC _action_proc
+REAL _action_real
 
 // CONSTANTES
 ConstantePredefinida:
-TRUE 
-FALSE 
-NIL
+TRUE _action_verdadero
+FALSE _action_falso
+NIL _action_nil
 
 ListaDeIdentificadores:
-Identificador RestoListaIdentificadores
+Identificador _action_identificador RestoListaIdentificadores
 
 RestoListaIdentificadores:
-_epsilon_	
-, Identificador RestoListaIdentificadores 
+_epsilon_ _action_vacio
+, Identificador _action_identificador RestoListaIdentificadores
 
 //--------------------------------------------------------------------------------------//
 //		IMPORTACIONES DE PROCEDIMIENTOS Y FUNCIONES PREDEFINIDAS		//
@@ -393,9 +392,9 @@ WriteLn
 LlamadaProcedimientoPredefinido:
 DEC ( Expresion [ , Expresion ] )
 INC ( Expresion [ , Expresion ] )
-INCL ( Expresion , Expresion ) 
+INCL ( Expresion , Expresion )
 EXCL ( Expresion , Expresion )
-NEW ( Expresion ) 
+NEW ( Expresion )
 DISPOSE ( Expresion )
 ReadInt ( Expresion )
 WriteInt ( Expresion , Expresion )
@@ -403,7 +402,7 @@ ReadCard ( Expresion )
 WriteCard ( Expresion , Expresion )
 ReadChar ( Expresion )
 WriteChar (  Expresion )
-ReadString ( Expresion ) 
+ReadString ( Expresion )
 WriteString ( Expresion )
 ReadReal ( Expresion )
 WriteReal ( Expresion , Expresion [ , Expresion ] )
@@ -421,5 +420,5 @@ MIN ( IdentificadorDeTipo )
 ODD ( Expresion )
 ORD ( Expresion )
 SIZE ( IdentificadorDeTipo )
-TRUNC ( Expresion ) 
+TRUNC ( Expresion )
 VAL ( IdentificadorDeTipo , Expresion )
